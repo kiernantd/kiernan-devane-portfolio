@@ -1,6 +1,19 @@
 # kiernan-devane-portfolio
 
-Personal portfolio for **Kiernan Devane** — a Next.js 16 + React 19 + TypeScript + Tailwind site with an editorial-technical aesthetic.
+Personal site for **Kiernan Devane** — early-career software engineer, University of Pittsburgh CS '25.
+
+→ **Live:** [kiernan-devane-portfolio.vercel.app](https://kiernan-devane-portfolio.vercel.app) _(update this after first deploy)_
+
+---
+
+## Stack
+
+- **Next.js 16** with the App Router and React Server Components
+- **React 19** and **TypeScript** in strict mode
+- **Tailwind CSS** with design tokens defined in `tailwind.config.ts`
+- **IBM Plex Serif + Mono** loaded via `next/font/google` (self-hosted, zero layout shift)
+- **lucide-react** for icons
+- **Vercel** for hosting and CI/CD
 
 ---
 
@@ -11,120 +24,121 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000). Requires Node.js ≥ 20.9.
 
-**Requirements:** Node.js ≥ 20.9 (same as `create-next-app`'s default in Next.js 16).
+Useful scripts:
+
+```bash
+npm run dev     # Turbopack dev server with Fast Refresh
+npm run build   # Production build
+npm run start   # Serve the production build
+npm run lint    # ESLint
+```
 
 ---
 
 ## Project structure
 
 ```
-kiernan-devane/
+.
 ├── app/
-│   ├── layout.tsx        # Root layout — loads IBM Plex fonts via next/font
-│   ├── page.tsx          # Composes the sections; server component
-│   └── globals.css       # Tailwind directives + grain texture
+│   ├── layout.tsx        # Root layout; loads IBM Plex via next/font
+│   ├── page.tsx          # Server component; composes sections
+│   └── globals.css       # Tailwind directives + film-grain overlay
 ├── components/
-│   ├── nav.tsx
-│   ├── hero.tsx          # "use client" (copy-to-clipboard state)
-│   ├── about.tsx
-│   ├── work.tsx
-│   ├── project-card.tsx  # Hover via Tailwind group-hover, no JS needed
-│   ├── stack.tsx
-│   ├── contact.tsx
-│   ├── footer.tsx
+│   ├── nav.tsx           # Server
+│   ├── hero.tsx          # Client — copy-to-clipboard state
+│   ├── about.tsx         # Server
+│   ├── work.tsx          # Server
+│   ├── project-card.tsx  # Server — hover via Tailwind group-hover
+│   ├── stack.tsx         # Server
+│   ├── contact.tsx       # Server
+│   ├── footer.tsx        # Server
 │   └── ui/
 │       ├── container.tsx
-│       ├── fade-in.tsx   # "use client" — only hook component in the app
+│       ├── fade-in.tsx   # Client — IntersectionObserver
 │       └── section-marker.tsx
 ├── lib/
-│   └── data.ts           # Typed content: projects, stack, about facts, links
-├── public/               # Drop resume.pdf and static assets here
-├── tailwind.config.ts    # Design tokens (colors, fonts, keyframes)
-├── tsconfig.json         # strict: true, @/* path alias
-├── next.config.mjs
-└── package.json
+│   └── data.ts           # Typed content source
+└── public/
+    └── resume.pdf        # Drop the résumé PDF here
 ```
 
-### Why it's split this way
+### Why this structure
 
-- **`app/page.tsx` is a server component.** It imports everything else. Only `Hero` and `FadeIn` are client components — everything else renders on the server.
-- **`FadeIn` is the single place we reach for React hooks.** It wraps anything that should animate in on scroll via `IntersectionObserver`. Sections stay as server components and simply nest `<FadeIn>` around their content.
-- **Hover states use Tailwind `group` / `group-hover`**, not `useState`. That keeps `ProjectCard` and `Nav` on the server and avoids hydration cost.
-- **All content lives in `lib/data.ts`** with TypeScript types. Adding a new project = adding an object to the `projects` array.
+All site content lives in `lib/data.ts` as typed arrays. Adding a project means
+appending an object; the TypeScript compiler catches typos.
+
+Every section renders on the server. Only two files carry `"use client"`:
+`ui/fade-in.tsx` (needs `IntersectionObserver`) and `hero.tsx` (has clipboard
+state). Hover states are handled via Tailwind's `group` / `group-hover`
+pattern instead of React state, so cards like `ProjectCard` stay on the server.
+
+Design tokens — colors, fonts, animations — live in `tailwind.config.ts`.
+Colors are referenced by name (`paper`, `ink`, `accent`) throughout the app,
+so a theme change is a three-line edit.
 
 ---
 
 ## Customizing
 
-**Add a project.** Open `lib/data.ts` and append to `projects`:
+**Add a project.** Append to `projects` in `lib/data.ts`:
 
 ```ts
 {
-  id: "P04",
-  title: "Your new project",
+  id: "P05",
+  title: "Your project",
   year: "2026",
-  role: "Role · What you did",
-  blurb: "One paragraph. Keep it honest and specific.",
+  role: "What you did · Where",
+  blurb: "One paragraph. Specific, honest, readable.",
   stack: ["TypeScript", "Postgres"],
-  command: null,   // or a shell command to show in a terminal pill
+  command: null,   // or a shell command to show inline
   href: null,      // or an external URL
 }
 ```
 
-**Change colors.** Edit `tailwind.config.ts`:
+**Change the theme.** Edit `tailwind.config.ts`:
 
 ```ts
 colors: {
   paper: "#0E0E0C",   // background
   ink: "#F5EFE4",     // text
-  accent: "#FF6B35",  // single highlight color
+  accent: "#FF6B35",  // the one highlight color
 }
 ```
 
-**Swap fonts.** In `app/layout.tsx`, replace the `IBM_Plex_Serif` / `IBM_Plex_Mono` imports with any other `next/font/google` pair. Keep the `variable` names (`--font-serif`, `--font-mono`) so Tailwind's `font-serif` / `font-mono` classes continue to work.
+**Swap fonts.** Replace the `IBM_Plex_Serif` / `IBM_Plex_Mono` imports in
+`app/layout.tsx` with any other `next/font/google` pair. Keep the variable
+names (`--font-serif`, `--font-mono`) so Tailwind's `font-serif` / `font-mono`
+classes continue to resolve.
 
-**Update contact info.** Edit `contactLinks` and `aboutFacts` in `lib/data.ts`.
+**Update contact or about.** Edit `contactLinks` and `aboutFacts` in
+`lib/data.ts`.
 
-**Add your résumé.** Drop the PDF at `public/resume.pdf`. The link in `lib/data.ts` already points to `/resume.pdf`.
+**Add the résumé.** Drop the PDF at `public/resume.pdf`. The download link is
+already wired up.
 
 ---
 
-## Deploy to Vercel
+## Deploy
 
-The fastest path from local to a live URL:
+Connected to Vercel and deployed from `main` — every push to `main` triggers
+a production deploy, every push to another branch gets a preview URL.
+
+To deploy a fresh clone:
 
 ```bash
-# Option A: CLI
+# CLI
 npm i -g vercel
 vercel
 
-# Option B: Git
-# 1. Push this repo to GitHub
-# 2. Import it at https://vercel.com/new
-# 3. Accept defaults — Vercel detects Next.js automatically
+# or at vercel.com/new, import the GitHub repo; Vercel auto-detects Next.js
 ```
-
-For a custom domain (e.g. `kierandevane.dev`), buy it, add it in the Vercel dashboard under Project → Settings → Domains, and point the DNS as Vercel instructs.
 
 ---
 
-## Notes on tech choices
+## Credits
 
-- **Next.js 16 App Router + Turbopack.** Default since Next 16; zero config needed.
-- **React 19.** Required by Next 16. No legacy APIs in use.
-- **`next/font/google`.** Self-hosts IBM Plex at build time — zero runtime font fetches, no layout shift, no `@import` in CSS.
-- **Tailwind 3.4.** Custom theme in `tailwind.config.ts`. No runtime CSS-in-JS.
-- **`lucide-react`.** Icon set — tree-shakes to only the icons actually imported.
-
----
-
-## Scripts
-
-```bash
-npm run dev     # Turbopack dev server at :3000
-npm run build   # Production build
-npm run start   # Serve the production build
-npm run lint    # ESLint
-```
+Design and code by Kiernan Devane.
+Film-grain texture is a classic SVG `feTurbulence` trick. Icons from Lucide.
+Typography is IBM's Plex family (Apache 2.0).
