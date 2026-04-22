@@ -157,7 +157,7 @@ export const contactLinks: readonly ContactLink[] = [
     value: "kiernan_devane.pdf",
     href: "/resume.pdf",
     icon: FileText,
-    external: false,
+    external: true,
   },
 ];
 
