@@ -13,21 +13,24 @@ export function About() {
             <div className="space-y-6 text-lg md:text-xl leading-relaxed font-serif font-light text-ink">
               <p>
                 I graduated from the University of Pittsburgh with a B.S. in
-                Computer Science (Cum Laude, minor in Linguistics). My last role
-                before looking was Junior Research Engineer at Surreality Lab,
-                where I worked on spatial-AR markers for Apple Vision Pro.
+                Computer Science (Cum Laude, minor in Linguistics), and most
+                recently worked as a Junior Research Engineer at Surreality Lab
+                on spatial-AR marker systems for Apple Vision Pro.
               </p>
               <p>
-                The thing I like most about building software is the
-                compression — how a handful of tidy components can do what used
-                to take a whole team. I gravitate toward small codebases where
-                the whole picture fits in your head, and I care about the boring
-                stuff: names, tests, and how things actually feel to use.
+                I&apos;m drawn to cloud-native architecture and AI-powered
+                systems — the combination that lets small teams punch well above
+                their weight. My background spans distributed backends,
+                containerized deployments, and integrating LLM APIs into real
+                products. I care about infrastructure that&apos;s observable,
+                AI that&apos;s actually useful, and consulting work that creates
+                lasting value.
               </p>
               <p>
-                Outside the job search I&apos;m grinding LeetCode, writing
-                too-long commit messages, and rebuilding my Python fundamentals
-                from the ground up.
+                Right now I&apos;m pursuing AWS Solutions Architect
+                certification, deepening my Python for cloud and AI workloads,
+                and available for cloud engineering and technical consulting
+                engagements.
               </p>
             </div>
           </FadeIn>

@@ -18,13 +18,13 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kiernan Devane — Jr Software Engineer",
+  title: "Kiernan Devane — Cloud Engineer & Technical Consultant",
   description:
-    "CS graduate building thoughtful software on the web — and in the terminal. Currently interviewing.",
+    "Cloud infrastructure, AI integration, and technical consulting. CS graduate from the University of Pittsburgh, pursuing AWS Solutions Architect certification.",
   openGraph: {
-    title: "Kiernan Devane — Jr Software Engineer",
+    title: "Kiernan Devane — Cloud Engineer & Technical Consultant",
     description:
-      "CS graduate building thoughtful software on the web — and in the terminal.",
+      "Cloud infrastructure, AI integration, and technical consulting.",
     type: "website",
   },
 };

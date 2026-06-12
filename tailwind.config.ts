@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper: "#0E0E0C",
-        ink: "#F5EFE4",
-        accent: "#FF6B35",
+        paper: "#070B14",
+        ink: "#CDD8EE",
+        accent: "#38BDF8",
       },
       fontFamily: {
         // Bound to CSS variables defined in app/layout.tsx via next/font

@@ -8,7 +8,7 @@ export function Footer() {
           © 2026 · Kiernan Devane · Built with care
         </div>
         <div className="text-[11px] tracking-[0.24em] uppercase flex items-center gap-2 font-mono text-ink/35">
-          <span>last deploy · apr 18</span>
+          <span>last deploy · jun 12</span>
           <span className="inline-block w-2 h-3 bg-accent animate-blink" />
         </div>
       </Container>

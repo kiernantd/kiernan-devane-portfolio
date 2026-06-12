@@ -84,49 +84,49 @@ export const projects: readonly Project[] = [
 
 export const stack: readonly StackGroup[] = [
   {
-    group: "Shipping with",
+    group: "Cloud & Infrastructure",
     items: [
-      "TypeScript",
-      "JavaScript",
-      "Python",
-      "React",
-      "Node.js",
-      "HTML / CSS",
-      "Tailwind",
+      "AWS",
+      "Docker",
       "PostgreSQL",
       "Redis",
-      "REST APIs",
-      "Docker",
-      "Git",
       "Fly.io",
+      "CI / CD",
+      "Git",
+      "Linux",
     ],
   },
   {
-    group: "Actively leveling up",
-    items: ["Next.js", "Django", "AWS", "Rust"],
-  },
-  {
-    group: "From coursework & research",
+    group: "Backend & AI",
     items: [
-      "Java",
-      "C",
-      "Swift",
-      "OpenCV",
-      "Applied Cryptography",
+      "Python",
+      "TypeScript",
+      "Node.js",
+      "REST APIs",
+      "LLM APIs",
       "Distributed Systems",
       "Concurrency Control",
-      "Agile",
+    ],
+  },
+  {
+    group: "Frontend & Tooling",
+    items: [
+      "React",
+      "Next.js",
+      "JavaScript",
+      "Tailwind",
+      "HTML / CSS",
     ],
   },
 ];
 
 export const aboutFacts: readonly AboutFact[] = [
   ["Education", "University of Pittsburgh, B.S. CS · Cum Laude · Dec 2025"],
-  ["GPA", "3.3 · Minor in Linguistics"],
+  ["Focus", "Cloud Engineering · AI Integration · Technical Consulting"],
+  ["Cert", "AWS Solutions Architect Associate · In progress"],
   ["Last role", "Jr Research Engineer, Surreality Lab"],
-  ["In progress", "AWS Associate Solutions Architect"],
-  ["Location", "Downingtown, PA · open to NYC"],
-  ["Status", "Actively interviewing"],
+  ["Location", "Downingtown, PA · open to NYC / Remote"],
+  ["Status", "Available for cloud & consulting engagements"],
   ["Sponsorship", "Not required"],
 ];
 
@@ -155,7 +155,7 @@ export const contactLinks: readonly ContactLink[] = [
   {
     label: "Résumé",
     value: "kiernan_devane.pdf",
-    href: "/resume.pdf",
+    href: "/2026_Kiernan_Devane_SWE_Resume.pdf",
     icon: FileText,
     external: true,
   },

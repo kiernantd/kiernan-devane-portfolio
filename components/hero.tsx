@@ -37,11 +37,11 @@ export function Hero() {
         <FadeIn>
           <div className="flex items-center gap-3 mb-10 text-[11px] tracking-label uppercase font-mono text-ink/55">
             <Terminal size={12} className="text-accent" />
-            <span>Jr Software Engineer</span>
+            <span>Cloud Engineer · AI Practitioner</span>
             <span className="text-ink/35">/</span>
             <span>Philadelphia → NYC</span>
             <span className="text-ink/35">/</span>
-            <span className="text-accent">Available now</span>
+            <span className="text-accent">Available</span>
           </div>
         </FadeIn>
 
@@ -50,18 +50,21 @@ export function Hero() {
             className="font-serif font-light leading-[0.95] tracking-[-0.02em] text-ink"
             style={{ fontSize: "clamp(48px, 8vw, 124px)" }}
           >
-            I build thoughtful <br className="hidden md:block" />
-            software — on the web,{" "}
-            <span className="italic text-accent">and in the terminal</span>.
+            I engineer cloud-native{" "}
+            <br className="hidden md:block" />
+            systems, integrate AI, and{" "}
+            <br className="hidden md:block" />
+            consult on{" "}
+            <span className="italic text-accent">what actually matters</span>.
           </h1>
         </FadeIn>
 
         <FadeIn delay={240}>
           <p className="mt-10 max-w-xl text-lg md:text-xl leading-relaxed font-serif font-light text-ink/55">
-            CS graduate from the University of Pittsburgh, most recently a
-            research engineer on visionOS. Currently sharpening Python and
-            shipping React — looking for a team where engineers own problems
-            end-to-end.
+            CS graduate from the University of Pittsburgh with a focus on
+            cloud-native architecture, AI integration, and technical consulting.
+            Pursuing AWS Solutions Architect certification — available for cloud
+            engineering and consulting engagements.
           </p>
         </FadeIn>
 

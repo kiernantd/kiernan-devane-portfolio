@@ -1,6 +1,6 @@
 import { Container } from "@/components/ui/container";
 
-const links = ["work", "stack", "contact"] as const;
+const links = ["about", "work", "stack", "contact"] as const;
 
 export function Nav() {
   return (

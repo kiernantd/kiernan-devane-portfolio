@@ -18,10 +18,10 @@ export function Contact() {
               Let&apos;s <span className="italic text-accent">talk</span>.
             </h2>
             <p className="mt-8 max-w-lg text-lg md:text-xl leading-relaxed font-serif font-light text-ink/55">
-              I&apos;m most interested in roles where I can work closely with a
-              small team, ship into production quickly, and grow into senior
-              frontend or full-stack work. If that sounds like yours, I&apos;d
-              love to hear from you.
+              I&apos;m most interested in cloud engineering roles, AI-integration
+              projects, and technical consulting engagements. If you need someone
+              who can architect cloud systems, integrate AI, and communicate
+              clearly with stakeholders — let&apos;s talk.
             </p>
           </FadeIn>
 
